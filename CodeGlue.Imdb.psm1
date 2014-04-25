@@ -15,8 +15,8 @@ function Resolve-ImdbId {
         No characters are interpreted as wildcards.
 
     .NOTES
-        Author: Ben Lemmond
-        Email : skataben@gmail.com
+        Author: Benjamin Lemmond
+        Email : codeglue4u@gmail.com
 
     .EXAMPLE
         Resolve-ImdbId 1234
@@ -80,8 +80,8 @@ function Get-ImdbTitle {
         No characters are interpreted as wildcards.
 
     .NOTES
-        Author: Ben Lemmond
-        Email : skataben@gmail.com
+        Author: Benjamin Lemmond
+        Email : codeglue4u@gmail.com
 
     .EXAMPLE
         Get-ImdbTitle 'True Grit'
@@ -192,8 +192,8 @@ function Open-ImdbTitle {
         No characters are interpreted as wildcards.
 
     .NOTES
-        Author: Ben Lemmond
-        Email : skataben@gmail.com
+        Author: Benjamin Lemmond
+        Email : codeglue4u@gmail.com
 
     .EXAMPLE
         Open-ImdbTitle 'True Grit'
