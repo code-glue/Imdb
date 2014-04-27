@@ -49,8 +49,13 @@ function Resolve-ImdbId {
         $Id | foreach {
             try {
                 if ($_) {
-                    if ($_ -is [int] -or $_ -match '^\s*\d+\s*$') { return 'tt{0:0000000}'-f [int]$_ }
-                    if ($_.psobject.Properties['imdbID']) { return $_.imdbID }
+                    if ($_ -is [int] -or $_ -match '^\s*\d+\s*$') {
+                        return 'tt{0:0000000}'-f [int]$_
+                    }
+
+                    if ($_.psobject.Properties['imdbID']) {
+                        return $_.imdbID
+                    }
                 }
                 $_
             }
@@ -144,20 +149,17 @@ function Get-ImdbTitle {
 
             $queryStrings | foreach {
                 try {
-                    $uri = "$uriRoot$_"
-                    $result = $webClient.DownloadString($uri) | ConvertFrom-Json
-                    $props = $result.psobject.Properties
+                    $result = $webClient.DownloadString("$uriRoot$_") | ConvertFrom-Json
 
-                    if ($props['Error']) {
+                    if ($result.psobject.Properties['Error']) {
                         throw [System.Management.Automation.ItemNotFoundException]$result.Error
                     }
 
-                    if (-not $props['Search']) {
+                    if (-not $result.psobject.Properties['Search']) {
                         return $result
                     }
-
-                    $uri = "${uriRoot}i=$_"
-                    $result.Search | foreach { $_.imdbID } | foreach { $webClient.DownloadString($uri) } | ConvertFrom-Json
+                    
+                    $result.Search | Resolve-ImdbId | foreach { $webClient.DownloadString("${uriRoot}i=$_") } | ConvertFrom-Json
                 }
                 catch {
                     Write-Error -ErrorRecord $_
