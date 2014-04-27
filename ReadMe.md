@@ -58,7 +58,7 @@ Resolve-ImdbId
         C:\PS>Get-ImdbTitle 'The Office' | imdbid
     
         This example uses Get-ImdbTitle to retrieve a PSCustomObject which has a property named 'imdbID'.
-        This object is piped to imdbid (Resolve_ImdbId) and returns a string value of "tt0386676".
+        This object is piped to imdbid (Resolve-ImdbId) and returns a string value of "tt0386676".
     
     
     
