@@ -145,7 +145,6 @@ function Get-ImdbTitle {
             $queryStrings | foreach {
                 try {
                     $uri = "$uriRoot$_"
-                    $uri | Write-Debug
                     $result = $webClient.DownloadString($uri) | ConvertFrom-Json
                     $props = $result.psobject.Properties
 
@@ -158,7 +157,6 @@ function Get-ImdbTitle {
                     }
 
                     $uri = "${uriRoot}i=$_"
-                    $uri | Write-Debug
                     $result.Search | foreach { $_.imdbID } | foreach { $webClient.DownloadString($uri) } | ConvertFrom-Json
                 }
                 catch {
