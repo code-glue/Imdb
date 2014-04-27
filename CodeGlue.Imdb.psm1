@@ -158,7 +158,7 @@ function Get-ImdbTitle {
                     if (-not $result.psobject.Properties['Search']) {
                         return $result
                     }
-                    
+
                     $result.Search | Resolve-ImdbId | foreach { $webClient.DownloadString("${uriRoot}i=$_") } | ConvertFrom-Json
                 }
                 catch {
