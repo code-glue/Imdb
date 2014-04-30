@@ -7,7 +7,7 @@
 :: the user's "\My Documents\WindowsPowerShell\Modules\" directory.
 :: It is not required to run the module and is included only as a convenience.
 
-set ModuleName=CodeGlue.Imdba
+set ModuleName=CodeGlue.Imdb
 
 :: Get the My Documents path
 SetLocal EnableExtensions
