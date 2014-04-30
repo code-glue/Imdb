@@ -1,4 +1,9 @@
-﻿#requires -Version 3
+﻿<#
+Copyright © 2014 Code-Glue (www.code-glue.com)
+#>
+
+
+#requires -Version 3
 
 
 Set-StrictMode -Version Latest
@@ -16,7 +21,7 @@ function Resolve-ImdbId {
 
     .NOTES
         Author: Benjamin Lemmond
-        Email : codeglue4u@gmail.com
+        Email : benlemmond@codeglue.org
 
     .EXAMPLE
         Resolve-ImdbId 1234
@@ -86,7 +91,7 @@ function Get-ImdbTitle {
 
     .NOTES
         Author: Benjamin Lemmond
-        Email : codeglue4u@gmail.com
+        Email : benlemmond@codeglue.org
 
     .EXAMPLE
         Get-ImdbTitle 'True Grit'
@@ -193,7 +198,7 @@ function Open-ImdbTitle {
 
     .NOTES
         Author: Benjamin Lemmond
-        Email : codeglue4u@gmail.com
+        Email : benlemmond@codeglue.org
 
     .EXAMPLE
         Open-ImdbTitle 'True Grit'
